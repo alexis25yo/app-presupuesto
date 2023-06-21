@@ -1,16 +1,25 @@
 @import "universals";
 @import "variables";
 @import "mixings";
+@import "medios";
 
 .header {
-  width: 600px;
+  width: 100%;
   display: flex;
   margin: 20px;
+  @include respond-to($breakpoint) {
+    margin: 0;
+  }
   &__nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
-    margin: 0;
+    margin: 10;
     gap: 100px;
+    width: 100%;
+    @include respond-to($breakpoint) {
+      gap: 40px;
+    }
 
     h1 {
       color: $color-primary;
@@ -38,47 +47,11 @@
   }
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-items: center;
-  align-content: center;
-  border: 1.5px solid $color-black;
-  padding: 10px;
-  width: 300px;
-  margin: 50px;
-  border-radius: 10px;
-  box-shadow: $color-shadow;
-  background-color: $color-form;
-
-  &__label {
-    font-size: 14px;
-    color: $color-primary;
-    font-weight: 600;
-  }
-
-  &__input {
-    padding: 5px 10px;
-    border-radius: 5px;
-    outline: none;
-    border: 1px solid $color-primary;
-    margin: 10px;
-  }
-
-  &__select {
-    align-items: center;
-    align-content: center;
-  }
-}
-
 .main {
   border: 1px solid $color-black;
   display: flex;
   border-radius: 10px;
-  align-content: center;
-  text-align: center;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: space-around;
   box-shadow: $color-shadow;
   background-color: $color-main;
@@ -90,5 +63,45 @@
     padding: 10px;
     box-shadow: $color-shadow;
     background-color: $color-table;
+
+    @include respond-to($breakpoint) {
+      margin: 10px;
+    }
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    align-content: center;
+    border: 1.5px solid $color-black;
+    padding: 10px;
+    width: 300px;
+    margin: 50px;
+    border-radius: 10px;
+    box-shadow: $color-shadow;
+    background-color: $color-form;
+    @include respond-to($breakpoint) {
+      margin: 10px;
+    }
+
+    &__label {
+      font-size: 14px;
+      color: $color-primary;
+      font-weight: 600;
+    }
+
+    &__input {
+      padding: 5px 10px;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid $color-primary;
+      margin: 10px;
+    }
+
+    &__select {
+      align-items: center;
+      align-content: center;
+    }
   }
 }
